@@ -24,6 +24,8 @@ use codec::{Decode, Encode};
 use futures::prelude::*;
 use tokio_timer::Delay;
 use parking_lot::RwLock;
+use sr_primitives::traits::SaturatedConversion;
+use substrate_prometheus::metrics; // for global metrics
 
 
 
@@ -39,11 +41,10 @@ use grandpa::{
 use primitives::{Blake2Hasher, H256, Pair};
 use sr_primitives::generic::BlockId;
 use sr_primitives::traits::{
-	Block as BlockT, Header as HeaderT, NumberFor, One, Zero,SaturatedConversion,
+	Block as BlockT, Header as HeaderT, NumberFor, One, Zero,
 };
 use substrate_telemetry::{telemetry, CONSENSUS_INFO};
-use substrate_prometheus::{metrics};
-
+//use crate::metrics; // for local metrics
 use crate::{
 	CommandOrError, Commit, Config, Error, Network, Precommit, Prevote,
 	PrimaryPropose, SignedMessage, NewAuthoritySet, VoterCommand,
@@ -1003,7 +1004,7 @@ pub(crate) fn finalize_block<B, Block: BlockT<Hash=H256>, E, RA>(
 		telemetry!(CONSENSUS_INFO; "afg.finalized_blocks_up_to";
 			"number" => ?number, "hash" => ?hash,
 		);
-		metrics::set_gauge(&metrics::FINALITY_HEIGHT, number.saturated_into::<u64>());
+		metrics::set_gauge(&metrics::HEIGHT, number.saturated_into::<u64>());
 		let new_authorities = if let Some((canon_hash, canon_number)) = status.new_set_block {
 			// the authority set has changed.
 			let (new_id, set_ref) = authority_set.current();
@@ -1107,3 +1108,15 @@ pub(crate) fn canonical_at_height<Block: BlockT<Hash=H256>, C: HeaderBackend<Blo
 
 	Ok(Some(current.hash()))
 }
+© 2019 GitHub, Inc.
+Terms
+Privacy
+Security
+Status
+Help
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About
