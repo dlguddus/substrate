@@ -395,6 +395,11 @@ pub struct RunCmd {
 	#[structopt(long = "rpc-port", value_name = "PORT")]
 	pub rpc_port: Option<u16>,
 
+<<<<<<< HEAD:client/cli/src/params.rs
+=======
+	#[structopt(long = "prometheus-port", value_name = "PORT")]
+	pub prometheus_port: Option<u16>,	
+>>>>>>> b9f9ac5a39c114629ddadb9fa20ca8ba7ab7f56d:core/cli/src/params.rs
 
 	/// Specify WebSockets RPC server TCP port.
 	#[structopt(long = "ws-port", value_name = "PORT")]
@@ -451,6 +456,8 @@ pub struct RunCmd {
 	#[structopt(long = "telemetry-url", value_name = "URL VERBOSITY", parse(try_from_str = parse_telemetry_endpoints))]
 	pub telemetry_endpoints: Vec<(String, u8)>,
 
+	#[structopt(long = "prometheus-addr", value_name = "Local IP address")]
+	pub prometheus_endpoint: Option<String>,
 	/// Should execute offchain workers on every block.
 	///
 	/// By default it's only enabled for nodes that are authoring new blocks.

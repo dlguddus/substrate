@@ -29,6 +29,8 @@ network = { package = "substrate-network", path = "../network" }
 paint-finality-tracker = { path = "../../paint/finality-tracker" }
 fg_primitives = { package = "substrate-finality-grandpa-primitives", path = "../../primitives/finality-grandpa" }
 grandpa = { package = "finality-grandpa", version = "0.9.0", features = ["derive-codec"] }
+substrate-prometheus= { path = "../prometheus"}
+
 
 
 [dev-dependencies]

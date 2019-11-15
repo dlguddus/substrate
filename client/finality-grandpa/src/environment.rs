@@ -27,6 +27,7 @@ use parking_lot::RwLock;
 use sr_primitives::traits::SaturatedConversion;
 use substrate_prometheus::metrics; // for global metrics
 
+<<<<<<< HEAD:client/finality-grandpa/src/environment.rs
 use client_api::{
 	HeaderBackend, BlockchainEvents,
 	backend::{Backend},
@@ -35,6 +36,10 @@ use client_api::{
 	error::Error as ClientError,
 	utils::is_descendent_of,
 };
+=======
+
+
+>>>>>>> b9f9ac5a39c114629ddadb9fa20ca8ba7ab7f56d:core/finality-grandpa/src/environment.rs
 use client::{
 	apply_aux, Client, 
 };
@@ -49,10 +54,14 @@ use sr_primitives::traits::{
 };
 use substrate_telemetry::{telemetry, CONSENSUS_INFO};
 <<<<<<< HEAD:client/finality-grandpa/src/environment.rs
+<<<<<<< HEAD:client/finality-grandpa/src/environment.rs
 use substrate_prometheus::{metrics};
 =======
 //use crate::metrics; // for local metrics
 >>>>>>> set global/local metric:core/finality-grandpa/src/environment.rs
+=======
+//use crate::metrics; // for local metrics
+>>>>>>> b9f9ac5a39c114629ddadb9fa20ca8ba7ab7f56d:core/finality-grandpa/src/environment.rs
 use crate::{
 	CommandOrError, Commit, Config, Error, Network, Precommit, Prevote,
 	PrimaryPropose, SignedMessage, NewAuthoritySet, VoterCommand,

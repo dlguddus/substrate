@@ -1133,6 +1133,10 @@ ServiceBuilder<
 				.then(|_| Ok(()))));
 			telemetry
 		});
+<<<<<<< HEAD:client/service/src/builder.rs
+=======
+		
+>>>>>>> b9f9ac5a39c114629ddadb9fa20ca8ba7ab7f56d:core/service/src/builder.rs
 		match config.prometheus_endpoint {
 			None => (), 
 			Some(x) => {let _prometheus = promet::init_prometheus(x);}	

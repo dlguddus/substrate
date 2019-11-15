@@ -76,6 +76,8 @@ pub struct Configuration<C, G, E = NoExtension> {
 	/// prometheus service addr. `None` if disabled.
 	pub prometheus_endpoint: Option<SocketAddr>,
 	/// Telemetry service URL. `None` if disabled.
+	pub prometheus_endpoint: Option<SocketAddr>,
+	/// prometheus exporter address. local.
 	pub telemetry_endpoints: Option<TelemetryEndpoints>,
 	/// External WASM transport for the telemetry. If `Some`, when connection to a telemetry
 	/// endpoint, this transport will be tried in priority before all others.
