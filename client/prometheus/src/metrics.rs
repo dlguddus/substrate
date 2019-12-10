@@ -27,7 +27,8 @@ pub fn set_histogram(histogram: &Result<Histogram>, value: f64) {
         histogram.observe(value)
     }
 }
-///All of the metrics in the prometheus are managed by the lazy_static.
+//All of the metrics in the prometheus are managed by the lazy_static.
+
 lazy_static! {
     pub static ref FINALITY_HEIGHT: Result<IntGauge> = try_create_int_gauge(
         "consensus_finality_block_height_number",

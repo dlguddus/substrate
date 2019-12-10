@@ -52,16 +52,8 @@ use std::{
 };
 use sysinfo::{get_current_pid, ProcessExt, System, SystemExt};
 use tel::{telemetry, SUBSTRATE_INFO};
-<<<<<<< HEAD
-<<<<<<< HEAD
 use sp_transaction_pool::{TransactionPool, TransactionPoolMaintainer};
-=======
-use promet::prometheus_gauge;
-=======
 use sc_prometheus::prometheus_gauge;
->>>>>>> 59b2640e2... Milestone1: Final Version of v0.3
-use txpool_api::{TransactionPool, TransactionPoolMaintainer};
->>>>>>> f47c2bc59... chore: Refactor rebase master prometheus_v0.3
 use sp_blockchain;
 use grafana_data_source::{self, record_metrics};
 
